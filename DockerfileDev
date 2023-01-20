@@ -1,0 +1,11 @@
+FROM golang:alpine3.15
+
+WORKDIR /src
+
+COPY . .
+
+RUN go install github.com/gofiber/cli/fiber@latest
+
+RUN go mod tidy
+
+CMD ["fiber", "dev"]
